@@ -23,6 +23,8 @@ int main() {
     int l2 = 4, c2 = 5;
     for (i = 0; i < TAM_NAVIO; i++)
         tabuleiro[l2 + i][c2] = NAVIO;
+    //TÍTULO
+    printf("\n***TABULEIRO BATALHA NAVAL***\n\n");
 
     // Exibe cabeçalho das colunas (letras)
     printf("   ");
