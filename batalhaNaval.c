@@ -23,6 +23,43 @@ int main() {
     int l2 = 4, c2 = 5;
     for (i = 0; i < TAM_NAVIO; i++)
         tabuleiro[l2 + i][c2] = NAVIO;
+    int l3 = 4, c3 = 4;
+    int pode = 1;
+    for (i = 0; i < TAM_NAVIO; i++) {
+        // Verifica limites
+        if (l3 + i >= TAM || c3 + i >= TAM) {
+            pode = 0;
+            break;
+        }
+        // Verifica sobreposição
+        if (tabuleiro[l3 + i][c3 + i] != AGUA) {
+            pode = 0;
+            break;
+        }
+    }
+    if (pode) {
+        for (i = 0; i < TAM_NAVIO; i++)
+            tabuleiro[l3 + i][c3 + i] = NAVIO;
+    }
+
+    // Posiciona o navio 4 (diagonal anti) em (0,9)
+    int l4 = 0, c4 = 9;
+    pode = 1;
+    for (i = 0; i < TAM_NAVIO; i++) {
+        if (l4 + i >= TAM || c4 - i < 0) {
+            pode = 0;
+            break;
+        }
+        if (tabuleiro[l4 + i][c4 - i] != AGUA) {
+            pode = 0;
+            break;
+        }
+    }
+    if (pode) {
+        for (i = 0; i < TAM_NAVIO; i++)
+            tabuleiro[l4 + i][c4 - i] = NAVIO;
+    }
+    
     //TÍTULO
     printf("\n***TABULEIRO BATALHA NAVAL***\n\n");
 
